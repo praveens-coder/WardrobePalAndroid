@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonAddClothing: Button
     private lateinit var buttonSuggestOutfit: Button
     private lateinit var textViewSuggestedOutfit: TextView
+    private lateinit var textViewWardrobe: TextView
 
     private val wardrobe: MutableList<ClothingItem> = mutableListOf()
 
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         buttonAddClothing = findViewById(R.id.buttonAddClothing)
         buttonSuggestOutfit = findViewById(R.id.buttonSuggestOutfit)
         textViewSuggestedOutfit = findViewById(R.id.textViewSuggestedOutfit)
+        textViewWardrobe = findViewById(R.id.textViewWardrobe) // Added this line
 
         // Set click listeners
         buttonAddClothing.setOnClickListener { addClothing() }
@@ -50,13 +52,12 @@ class MainActivity : AppCompatActivity() {
             val clothingItem = ClothingItem(name, color, type)
             wardrobe.add(clothingItem)
             clearFields()
-            // Optionally, you can display a message or update UI after adding
+            displayWardrobe() // Update display after adding item
         } else {
             // Handle case where fields are empty
             // Optionally, display a toast or message to the user
         }
     }
-
 
     private fun suggestOutfit() {
         if (wardrobe.isEmpty()) {
@@ -72,5 +73,14 @@ class MainActivity : AppCompatActivity() {
         editTextClothingName.text.clear()
         editTextClothingType.text.clear()
         editTextClothingColor.text.clear()
+    }
+
+    private fun displayWardrobe() {
+        // Construct a string representation of wardrobe items
+        val wardrobeText = StringBuilder()
+        for ((index, item) in wardrobe.withIndex()) {
+            wardrobeText.append("${index + 1}. ${item.name}, ${item.color}, ${item.type}\n")
+        }
+        textViewWardrobe.text = wardrobeText.toString()
     }
 }

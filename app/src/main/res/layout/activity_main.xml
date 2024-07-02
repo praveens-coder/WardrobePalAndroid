@@ -46,4 +46,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text_view_suggested_outfit" />
+
+    <!-- TextView to display wardrobe items -->
+    <TextView
+        android:id="@+id/textViewWardrobe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Wardrobe Items:"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
 </LinearLayout>
