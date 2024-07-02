@@ -8,38 +8,42 @@
     <EditText
         android:id="@+id/editTextClothingName"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="Enter clothing name" />
-
-    <EditText
-        android:id="@+id/editTextClothingType"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="Enter clothing type (SHIRT or PANTS)" />
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_text_clothing_name"
+        android:inputType="text"
+        android:autofillHints="clothingName" />
 
     <EditText
         android:id="@+id/editTextClothingColor"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="Enter clothing color" />
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_text_clothing_color"
+        android:inputType="text"
+        android:autofillHints="clothingColor" />
+
+    <EditText
+        android:id="@+id/editTextClothingType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_text_clothing_type"
+        android:inputType="text"
+        android:autofillHints="clothingType" />
 
     <Button
         android:id="@+id/buttonAddClothing"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Clothing" />
+        android:text="@string/button_add_clothing" />
 
     <Button
         android:id="@+id/buttonSuggestOutfit"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Suggest Outfit" />
+        android:text="@string/button_suggest_outfit" />
 
     <TextView
         android:id="@+id/textViewSuggestedOutfit"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:text="Suggested outfit will appear here" />
-
+        android:text="@string/text_view_suggested_outfit" />
 </LinearLayout>

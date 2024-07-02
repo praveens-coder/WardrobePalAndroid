@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">WardrobePal</string>
+    <string name="button_add_clothing">Add Clothing</string>
+    <string name="button_suggest_outfit">Suggest Outfit</string>
+    <string name="edit_text_clothing_color">Enter color</string>
+    <string name="edit_text_clothing_name">Enter name</string>
+    <string name="edit_text_clothing_type">Enter type</string>
+    <string name="text_view_suggested_outfit">Suggested Outfit</string>
 </resources>
