@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="clothing_types">
+        <item>Shirt</item>
+        <item>Pants</item>
+        <item>Jacket</item>
+        <item>Accessory</item>
+    </array>
+</resources>

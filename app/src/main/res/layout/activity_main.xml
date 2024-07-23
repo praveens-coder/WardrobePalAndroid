@@ -1,60 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/editTextClothingName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_text_clothing_name"
+        android:hint="@string/clothing_name"
         android:inputType="text"
-        android:autofillHints="clothingName" />
+        android:autofillHints="name" />
+
+    <Spinner
+        android:id="@+id/spinnerClothingType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/clothing_types"
+        android:layout_below="@id/editTextClothingName"
+        android:layout_marginTop="16dp" />
 
     <EditText
         android:id="@+id/editTextClothingColor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_text_clothing_color"
+        android:hint="@string/clothing_color"
         android:inputType="text"
-        android:autofillHints="clothingColor" />
-
-    <EditText
-        android:id="@+id/editTextClothingType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/edit_text_clothing_type"
-        android:inputType="text"
-        android:autofillHints="clothingType" />
+        android:autofillHints="color"
+        android:layout_below="@id/spinnerClothingType"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/buttonAddClothing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_add_clothing" />
+        android:text="@string/add_clothing"
+        android:layout_below="@id/editTextClothingColor"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buttonDisplayWardrobe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/display_wardrobe"
+        android:layout_below="@id/buttonAddClothing"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/buttonSuggestOutfit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_suggest_outfit" />
+        android:text="@string/suggest_outfit"
+        android:layout_below="@id/buttonDisplayWardrobe"
+        android:layout_marginTop="16dp" />
 
     <TextView
         android:id="@+id/textViewSuggestedOutfit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/text_view_suggested_outfit" />
-
-    <!-- TextView to display wardrobe items -->
-    <TextView
-        android:id="@+id/textViewWardrobe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text=""
+        android:layout_below="@id/buttonSuggestOutfit"
         android:layout_marginTop="16dp"
-        android:text="Wardrobe Items:"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
-
-</LinearLayout>
+        android:textSize="18sp" />
+</RelativeLayout>

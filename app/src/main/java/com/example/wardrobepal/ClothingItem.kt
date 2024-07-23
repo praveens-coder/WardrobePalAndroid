@@ -8,5 +8,7 @@ data class ClothingItem(
 
 enum class ClothingType {
     SHIRT,
-    PANTS
+    PANTS,
+    JACKET,
+    ACCESSORY
 }

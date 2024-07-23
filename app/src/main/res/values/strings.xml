@@ -1,9 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Existing strings -->
     <string name="app_name">WardrobePal</string>
-    <string name="button_add_clothing">Add Clothing</string>
-    <string name="button_suggest_outfit">Suggest Outfit</string>
-    <string name="edit_text_clothing_color">Enter color</string>
-    <string name="edit_text_clothing_name">Enter name</string>
-    <string name="edit_text_clothing_type">Enter type</string>
-    <string name="text_view_suggested_outfit">Suggested Outfit</string>
+    <string name="clothing_name">Clothing Name</string>
+    <string name="clothing_color">Clothing Color</string>
+    <string name="add_clothing">Add Clothing</string>
+    <string name="display_wardrobe">Display Wardrobe</string>
+    <string name="suggest_outfit">Suggest Outfit</string>
+
+    <!-- Messages -->
+    <string name="suggest_outfit_empty">Add items to your wardrobe first.</string>
+    <string name="empty_wardrobe_message">Your wardrobe is empty. Add some items first.</string>
+
+    <!-- Dropdown menu options -->
+    <string name="clothing_type_shirt">Shirt</string>
+    <string name="clothing_type_pants">Pants</string>
+    <string name="clothing_type_jacket">Jacket</string>
+    <string name="clothing_type_accessory">Accessory</string>
+
+    <!-- Error messages -->
+    <string name="error_invalid_type">Invalid clothing type selected.</string>
+
+    <!-- Suggested items (not format strings) -->
+    <string name="suggested_shirt">Suggested Shirt</string>
+    <string name="suggested_pants">Suggested Pants</string>
+    <string name="suggested_jacket">Suggested Jacket</string>
+    <string name="suggested_accessory">Suggested Accessory</string>
+
+    <!-- For formatted outfit suggestion -->
+    <string name="suggest_outfit_message">Suggested outfit: %1$s</string>
 </resources>
