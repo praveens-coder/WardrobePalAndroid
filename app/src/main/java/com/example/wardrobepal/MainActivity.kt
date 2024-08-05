@@ -6,7 +6,6 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 
 class MainActivity : AppCompatActivity() {
 
@@ -71,27 +70,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun suggestOutfit() {
-        if (wardrobe.isEmpty()) {
-            textViewSuggestedOutfit.text = getString(R.string.suggest_outfit_empty)
-        } else {
-            val suggestedItems = mutableListOf<String>()
+        // Group items by their type
+        val groupedItems = wardrobe.groupBy { it.type }
 
-            // Collect items by type
-            val shirts = wardrobe.filter { it.type == ClothingType.SHIRT }.map { it.name }
-            val pants = wardrobe.filter { it.type == ClothingType.PANTS }.map { it.name }
-            val jackets = wardrobe.filter { it.type == ClothingType.JACKET }.map { it.name }
-            val accessories = wardrobe.filter { it.type == ClothingType.ACCESSORY }.map { it.name }
-
-            if (shirts.isNotEmpty()) suggestedItems.add(getString(R.string.suggested_shirt) + ": " + shirts.joinToString(", "))
-            if (pants.isNotEmpty()) suggestedItems.add(getString(R.string.suggested_pants) + ": " + pants.joinToString(", "))
-            if (jackets.isNotEmpty()) suggestedItems.add(getString(R.string.suggested_jacket) + ": " + jackets.joinToString(", "))
-            if (accessories.isNotEmpty()) suggestedItems.add(getString(R.string.suggested_accessory) + ": " + accessories.joinToString(", "))
-
-            if (suggestedItems.isEmpty()) {
-                textViewSuggestedOutfit.text = getString(R.string.empty_wardrobe_message)
-            } else {
-                textViewSuggestedOutfit.text = getString(R.string.suggest_outfit_message, suggestedItems.joinToString(", "))
+        // Collect one item of each type if available
+        val suggestedItems = mutableListOf<ClothingItem>()
+        ClothingType.values().forEach { type ->
+            groupedItems[type]?.let { items ->
+                if (items.isNotEmpty()) {
+                    suggestedItems.add(items.random())
+                }
             }
+        }
+
+        // Handle case where no items are in the wardrobe
+        if (suggestedItems.isEmpty()) {
+            textViewSuggestedOutfit.text = getString(R.string.empty_wardrobe_message)
+        } else {
+            // Create a display string for the selected items
+            val outfitDescription = suggestedItems.joinToString(separator = ", ") {
+                "${it.name} (${it.color}, ${it.type.name.lowercase().replaceFirstChar { it.uppercase() }})"
+            }
+            textViewSuggestedOutfit.text = getString(R.string.suggest_outfit_message, outfitDescription)
         }
     }
 
